@@ -331,6 +331,6 @@ def knn_panel():
                     f"최종 결과 — 빨강: {red_count}표 / 파랑: {blue_count}표 → {st.session_state.knn_final_label}"
                 )
                 
-option = build_knn_option(k_val)
-st_echarts(options=option, height="560px")
+    option = build_knn_option(k_val)
+    st_echarts(options=option, height="560px")
 knn_panel()
