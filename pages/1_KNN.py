@@ -309,10 +309,7 @@ def knn_panel():
     if st.session_state.knn_new_point is None:
         st.info("좌표를 입력하고 `점 찍기`를 누르세요.")
 
-    option = build_knn_option(k_val)
-    st_echarts(options=option, height="560px")
-
-    if st.session_state.knn_new_point is not None:
+    else:
         x, y = st.session_state.knn_new_point
 
         if st.session_state.knn_step < k_val:
@@ -333,5 +330,7 @@ def knn_panel():
                 st.success(
                     f"최종 결과 — 빨강: {red_count}표 / 파랑: {blue_count}표 → {st.session_state.knn_final_label}"
                 )
-
+                
+option = build_knn_option(k_val)
+st_echarts(options=option, height="560px")
 knn_panel()
