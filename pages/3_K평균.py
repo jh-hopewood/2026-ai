@@ -41,14 +41,8 @@ COLORS = ["#e74c3c", "#3498db", "#2ecc71", "#9b59b6", "#f39c12"]
 # Helper
 # ============================================================
 def initialize_centroids(k):
-    if k == 2:
-        return np.array([[2.0, 2.0], [3.0, 2.5]], dtype=float)
-    elif k == 3:
-        return np.array([[2.0, 2.0], [3.0, 2.5], [2.5, 3.5]], dtype=float)
-    elif k == 4:
-        return np.array([[2.0, 2.0], [3.0, 2.5], [2.5, 3.5], [3.5, 3.0]], dtype=float)
-    else:
-        return np.array([[2.0, 2.0], [2.8, 2.2], [3.2, 2.8], [2.5, 3.5], [3.8, 3.2]], dtype=float)
+    idx = np.random.choice(len(X), k, replace=False)
+    return X[idx].copy()
 
 
 def assign_clusters(X, centroids):
